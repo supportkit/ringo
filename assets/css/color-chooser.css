@@ -1,0 +1,23 @@
+/*** Ventcamp v1.0 custom styles ***
+*
+*
+*   Predefined colors for quick change:
+*	
+*	Pink - #dd3e98
+*	Green - #57c2be
+*	Blue - #2da9ff
+*	Orange - #ff4919
+*
+*************************************/
+
+#style-switcher {left:-225px;position: fixed;top: 200px;display: block;width: 225px;background:rgba(0, 0, 0, 0.9); color:#fff; border: 0px solid #f0f0f0;padding: 10px 20px 20px 20px;z-index: 90000;}
+#style-switcher ul {margin-bottom: 8px;width: 100%;list-style: none; padding-left:0;}
+#style-switcher .style-toggle {margin-left:-5px;position: absolute;display: block;width: 50px;height: 50px;text-align: center;line-height: 50px;top: 25px;right: -50px; background:rgba(0, 0, 0, 0.9); color:#fff;}
+#style-switcher .style-toggle:hover {color:#ff4919 !important;}
+#style-switcher a.color {padding: 15px 15px;background: #555555; color: #ffffff;float: left;margin-right: 5px;font-size: 12px;text-transform: uppercase;line-height: normal;display: block;}
+
+#style-switcher a.color.pink {background:#dd3e98;}
+#style-switcher a.color.berry {background:#e97a6d;}
+#style-switcher a.color.green {background:#57c2be;}
+#style-switcher a.color.blue {background:#2da9ff;}
+#style-switcher a.color.orange {background:#ff7200;}

@@ -1,0 +1,7 @@
+/* MAILCHIMP STYLES */
+
+.error_message, .notice_message, .success_message { display: block;height: 22px;line-height: 14px; font-size: 11pt; padding: 3px 10px 3px 0px; margin-top:5px;}
+
+.error_message {/*background: url('error.gif') no-repeat 10px center;*/ background: 0 !important;  color: #fe1515; text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);}
+.error_message {color: #fff; }
+.success_message {color: #12BE0B; }
