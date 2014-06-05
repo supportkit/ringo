@@ -5,7 +5,7 @@
     app.el['window']                   = $(window);
     app.el['document']                 = $(document);
     app.el['back-to-top']              = $('.back-to-top');
-    app.el['html-body']                = $('html,body');	
+    app.el['html-body']                = $('html,body');
     app.el['loader']                   = $('#loader');
     app.el['mask']                     = $('#mask');
 
@@ -19,19 +19,19 @@
 		if (width < 768){$('.animated').removeClass('animated').removeClass('hiding');}
 		// $('#screen').html( size + ' - ' + width );
 		// console.log( size, width );
-	};	
+	};
 
-	
-	
-	$(function() {	
+
+
+	$(function() {
     //Preloader
     app.el['loader'].delay(700).fadeOut();
-    app.el['mask'].delay(1200).fadeOut("slow");    
+    app.el['mask'].delay(1200).fadeOut("slow");
 
 	// Resized based on screen size
 	app.el['window'].resize(function() {
 		app.fn.screenSize();
-	});		
+	});
 
     // fade in .back-to-top
     $(window).scroll(function () {
@@ -56,13 +56,13 @@
         var hero        = jQuery('#hero'),
             winHeight   = jQuery(window).height(),
             heroHeight  = winHeight;
-          
+
             hero.css({height: heroHeight+"px"});
       };
-      
+
     jQuery(window).on("resize", heroInit);
     jQuery(document).on("ready", heroInit);
-    
+
     $('.navigation-bar').onePageNav({
         currentClass: 'active',
         changeHash: true,
@@ -70,7 +70,7 @@
         scrollThreshold: 0.5,
         easing: 'swing'
     });
-    
+
     $('.animated').appear(function(){
       var element = $(this);
       var animation = element.data('animation');
@@ -89,26 +89,26 @@
         if (element.hasClass('counter')) {
           element.find('.value').countTo();
         }
-      }    
+      }
     },{accY: -150});
-    
+
     $('#header').waypoint('sticky', {
         wrapper: '<div class="sticky-wrapper" />',
         stuckClass: 'sticky'
-    }); 
+    });
 
     $('.fancybox').fancybox();
-    
+
 	});
-	
+
 	// ****** GOOGLE MAP *******
 	var map;
-	var brooklyn = new google.maps.LatLng(40.6743890, -73.9455);
-				
+	var brooklyn = new google.maps.LatLng(45.507408,-73.5698041);
+
 	var MY_MAPTYPE_ID = 'custom_style';
-				
+
 	function initialize() {
-				
+
 		var featureOpts = [
 			{
 				stylers: [
@@ -132,23 +132,23 @@
 				]
 			}
 		];
-				
+
 		var mapOptions = {
 			zoom: 14,
 			scrollwheel: false,
 			panControl: false,
 			mapTypeControl: false,
   			streetViewControl: false,
-			center: new google.maps.LatLng(40.7485422, -74.001206),
+			center: new google.maps.LatLng(45.507408,-73.5698041),
 			mapTypeControlOptions: {
 				mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
 			},
 			mapTypeId: MY_MAPTYPE_ID
 		};
-				
+
 		map = new google.maps.Map(document.getElementById('canvas-map'),mapOptions);
 		var image = 'assets/img/pmarker.png';
-		var myLatLng = new google.maps.LatLng(40.7478373, -73.9870355);
+		var myLatLng = new google.maps.LatLng(45.507408,-73.5698041);
 		var beachMarker = new google.maps.Marker({
 			position: myLatLng,
 			map: map,
@@ -157,12 +157,12 @@
 		var styledMapOptions = {
 			name: 'Custom Style'
 		};
-				
+
 		var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
-				
+
 		map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
 	}
-				
-	google.maps.event.addDomListener(window, 'load', initialize); 
-	
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
 })();
