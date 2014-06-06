@@ -5,9 +5,9 @@
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Home</title>
-    <meta name="description" content="Ringo connects you to your app users by providing one-way video chat, screen sharing and annotations.">
-    <meta name="keywords" content="Mayday, Ringo, iOS SDK, Support">
+    <title>Ringo - Connect to your app's users with video chat, screen sharing, and annotations</title>
+    <meta name="description" content="Bring a human face to your app by connecting to your users with live video and screen sharing">
+    <meta name="keywords" content="iOS, Mayday, Service SOS, Video Chat, Screen Share, Remote Annotation, Help Tool, Best Support">
     <meta name="author" content="Radialpoint">
 
     <link rel="shortcut icon" href="assets/img/favicon.ico">
@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="assets/css/font-lineicons.css" type="text/css" media="all" />
     <link rel="stylesheet" href="assets/css/jquery.fancybox.css" type="text/css" media="all" />
     <link rel="stylesheet" href="assets/css/style.css" id="mainstyle" type="text/css" media="all" />
-	  <link rel="stylesheet" href="assets/css/toastr.min.css" type="text/css" media="all" />
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -43,78 +42,278 @@
     <![endif]-->
 </head>
 
-<body id="index" class="comingsoon-page">
-
+<body id="index">
+    <!-- Preloader -->
+    <div id="mask">
+        <div id="loader"><img src="assets/img/preloader.gif" alt="preloader" /></div>
+    </div>
     <header id="mobileheader" class="navigation-bar-header light visible-xs"></header>
     <!-- Hero Section -->
     <section id="hero" class="light">
       <div class="container">
         <div class="home-bg">
+          <nav class="navigation navigation-social">
+            <ul class="navigation-bar">
+              <li><a href="http://twitter.com/radialpoint"><span class="fa fa-twitter"></span></a>
+              <li><a href="http://github.com/radialpoint/ringo"><span class="fa fa-github"></span></a>
+              <li><a href="https://vimeo.com/user27009430"><span class="fa fa-vimeo-square"></span></a>
+            </ul>
+          </nav>
           <div class="hero-content text-center ">
-           <div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<section id="sc-countdown" class=" text-center">
-							<div class="container">
-								<div class="wrapper">
-									<h3>Ringo <span class="highlight">drops the beat</span> in</h3>
-									<!--<div class="sub-title">time left until launching our awesome event</div>-->
-									<div id="defaultCountdown"></div>
-									<div class="row countdown">
-										<div class="col-md-3 col-sm-3 col-xs-3">
-											<div class="counter">
-											  <div class="stat"><span class="value">{dnn}</span></div>
-											  <div class="stat-info">days</div>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-3">
-											<div class="counter">
-											  <div class="stat"><span class="value">{hnn}</span></div>
-											  <div class="stat-info">hours</div>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-3">
-											<div class="counter">
-											  <div class="stat"><span class="value">{mnn}</span></div>
-											  <div class="stat-info">minutes</div>
-											</div>
-										</div>
-										<div class="col-md-3 col-sm-3 col-xs-3">
-											<div class="counter">
-											  <div class="stat"><span class="value">{snn}</span></div>
-											  <div class="stat-info">seconds</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</section>
-					</div>
-					<div class="col-md-12">
-							<!-- Newsletter Section -->
-							<section id="" class="light">
-							  <div class="container notify">
-								<article class="article-big animated hiding" data-animation="fadeInDown" data-delay="0">
-								  <form class="form" action="https://impressive.ly/api/92c33b4c6a7af0f22a7d326ef8ccf906e31c81d9" method="post">
-									<div class="form-group form-inline">
-									  <input type="email" class="form-control required" id="NewsletterEmail" name="NewsletterEmail" placeholder="your@email.com" />
-									  <input type="submit" class="btn btn-xs btn-default" value="Notify me" />
-									</div>
-								  </form>
-								   <span class="h7">Get notified when we <span class="highlight">launch</span></span>
-								  <br/>
-								</article>
-							  </div>
-							</section>
-							<!-- End Newsletter Section -->
-					</div>
-				</div>
-			</div>
+            <div class="hero-small">
+              <hr /><span>Say hello to</span> <hr />
+            </div>
+            <div class="hero-big"><img src="assets/img/logo.png"></div>
+            <div class="hero-normal">
+              <strong>Give your users the star treatment.</strong>
+              <p>Bring a human face to your app by connecting to your users with live video and screen sharing.</p>
+            </div>
+            <a href="https://player.vimeo.com/video/92144403?title=0&amp;byline=0&amp;portrait=0&amp;color=ff0179" class="btn btn-lg btn-3d fancybox" data-fancybox-type="iframe"><i class="fa fa-play-circle fa-2x"></i> <span>Watch video</span></a>
+			<a href="#about" class="btn btn-sm btn-default">Learn More</a>
           </div>
         </div>
       </div>
     </section>
     <!-- End Hero Section -->
+    <!-- Header -->
+    <header id="header" class="navigation-bar-header light hidden-xs">
+      <div class="container">
+        <nav class="navigation">
+          <div class="navigation-txt visible-xs" data-toggle="dropdown">Home</div>
+          <button class="navigation-toggle visible-xs" type="button" data-toggle="dropdown">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <ul class="navigation-bar navigation-bar-left">
+            <li><a href="#about">Features</a></li>
+            <!--<li><a href="#stat">Number Facts</a></li>-->
+            <li><a href="#speakers">Team</a></li>
+            <li><a href="#elements">Un-pricing</a></li>
+            <li><a href="#elements">Get Started</a></li>
+            <li><a href="#map">Get in touch</a></li>
+            <li class="featured"><a href="http://github.com/radialpoint/ringo"><i class="fa fa-gears fa-1x"></i>Get the Code</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+    <!-- About Section -->
+    <section id="about" class="section dark">
+      <div class="container">
+	    <div class="icon-wrap"><span class="icon icon-active icon-seo-icons-15"></span></div>
+        <h3>Connect like never before</h3>
+        <div class="sub-title">Ringo makes adding world-class customer service to your app so easy, you'll be done in under <span class="highlight">5 minutes</span></div>
+        <br />
+        <br />
+        <section class="nav-tabs-simple">
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#htmlcss" data-toggle="tab"><i class="icon icon-seo-icons-22"></i> Talk</a></li>
+            <li><a href="#jquery" data-toggle="tab"><i class="icon icon-multimedia-20"></i> See</a></li>
+            <li><a href="#php" data-toggle="tab"><i class="icon icon-office-05"></i> Show</a></li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane fade in active" id="htmlcss">
+              <article class="row">
+                <div class="col-md-5 col-sm-5 animated hiding" data-animation="fadeInLeft" data-delay="500">
+                  <img class="img-responsive" src="assets/img/about-talk.jpg" alt="starbuck" />
+                </div>
+                <div class="col-md-6 col-sm-6 text-left animated hiding" data-animation="fadeInRight" data-delay="500">
+                  <h6>One-way video, two-way audio</h6>
+					<p>Ringo lets you connect directly with your users by streaming your webcam's feed to them as you answer their questions over live voice chat.</p>
+          <p>Your video image is displayed in a floating window above the user experience of your app so you can tag along and answer questions as the user asks them.</p>
+				</div>
+              </article>
+            </div>
+            <div class="tab-pane fade" id="jquery">
+              <article class="row">
+				<div class="col-md-6 col-sm-6 text-left animated hiding" data-animation="fadeInLeft" data-delay="500">
+                  <h6>See your app through your user's eyes</h6>
+					<p>When you connect to a user using Ringo, you'll get a live feed of your app running on his/her device. Use it to see exactly what your user sees so you can answer questions, effortlessly.</p>
+				</div>
+				<div class="col-md-5 col-sm-5 animated hiding" data-animation="fadeInRight" data-delay="500">
+                  <img class="img-responsive" src="assets/img/about-placeholder-mbp.jpg" alt="placeholder" />
+                </div>
+              </article>
+            </div>
+            <div class="tab-pane fade" id="php">
+              <article class="row">
+                <div class="col-md-5 col-sm-5 animated hiding" data-animation="fadeInLeft" data-delay="500">
+                  <img class="img-responsive" src="assets/img/about-placeholder-iphone.jpg" alt="iphone" />
+                </div>
+                <div class="col-md-6 col-sm-6 text-left animated hiding" data-animation="fadeInRight" data-delay="500">
+                  <h6>Show and Tell with Annotations</h6>
+                 <p>Draw overlay highlights on your user's app to help them follow your instructions and understand the info you're giving them.</p>
+                </div>
+              </article></div>
+          </div>
+        </section>
+      </div>
+    </section>
+    <!-- End About Section -->
+    <!-- Speakers Section -->
+    <section id="speakers" class="section light">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="icon-wrap"><span class="icon icon-active icon-faces-users-04"></span></div>
+        <h3>Meet the team</h3>
+        <div class="sub-title">We build cool things, together.</div>
+        <br />
+        <br />
+        <section class="row">
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="speaker-item animated hiding" data-animation="fadeInUp" data-delay="0">
+              <div class="img-wrapper">
+                <img src="assets/img/kev.jpg" class="img-responsive img-circle" alt="speaker-1" width="160" height="160" />
+              </div>
+              <div class="name">Kevin Gauthier</div>
+              <div class="sub">Design</div>
+              <div class="social-link">
+                <a href="http://twitter.com/kvgauthier"><span class="fa fa-twitter"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="speaker-item animated hiding" data-animation="fadeInUp" data-delay="500">
+              <div class="img-wrapper">
+                <img src="assets/img/mike.png" class="img-responsive img-circle" alt="speaker-2" width="160" height="160" />
+              </div>
+              <div class="name">Mike Gozzo</div>
+              <div class="sub">Product</div>
+              <div class="social-link">
+                <a href="http://twitter.com/gozmike"><span class="fa fa-twitter"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="clearfix visible-xs"></div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="speaker-item animated hiding" data-animation="fadeInUp" data-delay="1000">
+              <div class="img-wrapper">
+                <img src="assets/img/andrew.jpg" class="img-responsive img-circle" alt="speaker-3" width="160" height="160" />
+              </div>
+              <div class="name">Andrew Lavers</div>
+              <div class="sub">Dev</div>
+              <div class="social-link">
+                <a href="http://twitter.com/alavers"><span class="fa fa-twitter"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-3 col-xs-6">
+            <div class="speaker-item animated hiding" data-animation="fadeInUp" data-delay="1500">
+              <div class="img-wrapper">
+                <img src="assets/img/jp.jpg" class="img-responsive img-circle" alt="speaker-4" width="160" height="160" />
+              </div>
+              <div class="name">JP Joyal</div>
+              <div class="sub">Dev</div>
+              <div class="social-link">
+                <a href="http://twitter.com/jpjoyal"><span class="fa fa-twitter"></span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="h7"><a href="http://radialpoint.com" class="btn btn-sm btn-tertiary">See The Entire Team</a></div>
+      </div>
+    </section>
+    <!-- End Speakers Section -->
+    <!-- Price Section -->
+    <section id="price" class="section dark">
+      <div class="container">
+        <div class="icon-wrap"><span class="icon icon-active icon-shopping-02"></span></div>
+        <h3>Free, Forever</h3>
+        <div class="sub-title">Ringo is, and always will be free to use. We can't wait to see what you'll do with it.<p>&nbsp;</p></div>
+
+        <a href="http://github.com/radialpoint/ringo" class="btn btn-sm btn-primary"><i class="fa fa-gears fa-1x"></i> Get the Code</a>
+
+		<br/>
+		<br/>
+      </div>
+    </section>
+    <!-- End Price Section -->
+	<!-- Newsletter Section -->
+    <section id="newsletter" class="section light">
+      <div class="overlay"></div>
+      <div class="container">
+        <article class="article-big animated hiding" data-animation="fadeInDown" data-delay="0">
+          <h5><span class="highlight">Sign up</span> for our Newsletter</h5>
+          <p>No Spam - only the <span class="highlight">latest news</span> on Ringo</p>
+          <form class="form" action="https://impressive.ly/api/92c33b4c6a7af0f22a7d326ef8ccf906e31c81d9" method="post">
+            <div class="form-group form-inline">
+              <input type="email" class="form-control required" id="NewsletterEmail" name="NewsletterEmail" placeholder="your@email.com" />
+			        <input type="submit" class="btn btn-xs btn-default" value="Submit" />
+            </div>
+
+          </form>
+        </article>
+      </div>
+    </section>
+    <!-- End Newsletter Section -->
+	<!-- Elements Section -->
+    <section id="elements" class="section dark">
+      <div class="container">
+		<!--
+        <section class="vc-example text-center">
+          <h1>H1 <span class="highlight">Highlighted</span> text</h1>
+          <h2>H2 <span class="highlight">Highlighted</span> text</h2>
+          <h3>H3 <span class="highlight">Highlighted</span> text</h3>
+          <h4>H4 <span class="highlight">Highlighted</span> text</h4>
+          <h5>H5 <span class="highlight">Highlighted</span> text</h5>
+          <h6>H6 <span class="highlight">Highlighted</span> text</h6>
+          <div class="h7">H7 <span class="highlight">Highlighted</span> text</div>
+          <div class="h8">H8 <span class="highlight">Highlighted</span> text</div>
+        </section>
+        -->
+        <section class="vc-example">
+          <article class="article-big">
+            <h5>Get started in <span class="highlight">minutes</span></h5>
+            <p class="big">If you have a few minutes to spare, you can play with Ringo on your iPhone or iPad by integrating it into your iOS app. Get your iOS device ready (you can't test it on the simulator since you need a real camera and mic) and follow the <a href="http://github.com/radialpoint/ringo">readme</a>. We've even built a sample app you can run to experience Ringo without setting up your own environment.</p>
+          </article>
+        </section>
+
+        <section class="vc-example text-center">
+          <a href="http://github.com/radialpoint/ringo" class="btn btn-sm btn-primary"><i class="fa fa-gears fa-1x"></i> Get the Code</a>
+        </section>
+
+      </div>
+    </section>
+    <!-- End Elements Section -->
+    <!-- Register Section -->
+    <section id="register" class="section light">
+      <div class="overlay"></div>
+      <div class="container">
+        <article class="article-big animated hiding" data-animation="fadeInUp" data-delay="0">
+          <h5>Radialpoint is serious about transforming<br /> the support experience</h5>
+          <p>A great customer experience isn’t possible without a great support experience. That’s why Radialpoint is developing solutions that make technical support instant and complete.</p>
+		  <br/>
+          <a href="http://radialpoint.com" class="btn btn-sm btn-tertiary">Learn more about Radialpoint</a>
+        </article>
+      </div>
+    </section>
+    <!-- End Register Section -->
+    <!-- End Price Section -->
+    <!-- Map Section -->
+    <section id="map" class="dark">
+		<div id="canvas-map"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-sm-7 animated hiding location" data-animation="fadeInLeft" data-delay="0">
+					<h3>Find us here</h3>
+						<ul itemscope="" itemtype="http://schema.org/PostalAddress">
+							<li itemprop="address"><i class="fa fa-map-marker highlight"></i>2050 Bleury, Montreal, Canada</li>
+              <li itemprop="address"><i class="fa fa-twitter highlight"></i><a href="http://twitter.com/radialpoint">@radialpoint</a></li>
+						</ul>
+				</div>
+			</div>
+		</div>
+    </section>
+    <!-- End Map Section -->
+    <footer id="footer">
+
+    </footer>
+
+    <div class="back-to-top"><i class="fa fa-angle-up fa-3x"></i></div>
 
     <!--[if lt IE 9]>
         <script type="text/javascript" src="assets/js/jquery-1.11.0.min.js?ver=1"></script>
@@ -131,23 +330,6 @@
     <script type="text/javascript" src="assets/js/waypoints-sticky.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.fancybox.js"></script>
 	<script type="text/javascript" src="assets/mailchimp/js/mailing-list.js"></script>
-	    <script type="text/javascript" src="assets/js/jquery.plugin.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.countdown.js"></script>
-
     <script type="text/javascript" src="assets/js/scripts.js"></script>
-	<script type="text/javascript">
-	    // count down timer
-		var futureDate = new Date();
-		// count down 10 days from today
-		//futureDate.setDate( futureDate.getDate() + 10 );
-		// or set specific date in the future
-		futureDate = new Date("June 6, 2014 11:00:00");
-		$('.countdown').countdown({
-			until       : futureDate,
-			compact     : true,
-			padZeroes   : true,
-			layout      : $('.countdown').html()
-		});
-	</script>
 </body>
 </html>
