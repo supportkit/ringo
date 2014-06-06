@@ -1,0 +1,12 @@
+*.mode1v3
+*.perspectivev3
+*.pbxuser
+*.xcuserstate
+*.xcsettings
+*.xccheckout
+.DS_Store
+build
+xcuserdata
+appleDocuments
+*.sublime-workspace
+contents.xcworkspacedata
