@@ -8,6 +8,8 @@
 
 #import "RP_AppDelegate.h"
 #import "RP_MainViewController.h"
+#import "ObjectiveDDP.h"
+#import <ObjectiveDDP/MeteorClient.h>
 
 @implementation RP_AppDelegate
 
@@ -18,6 +20,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[RP_MainViewController alloc] init];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
