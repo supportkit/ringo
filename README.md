@@ -8,6 +8,8 @@ This project was built as part of a Hackathon at Radialpoint (http://radialpoint
 that the experience created by Mayday was groovy and wanted to see if we could build an SDK that encourages
 more apps to adopt its experience.
 
+See our demo video and learn more at http://radialpoint.github.io/ringo
+
 Currently the code is highly experimental but shouldn't be too hard for you to clean up
 and add into your app if you love the great end-user experience it can provide.
 
@@ -33,7 +35,7 @@ Adding Ringo to your iOS App
 1. Copy the "Ringo" folder from the distribution above into your XCode project.
 2. Add AFNetworking, SocketIO and SocketRocket to your project if you haven't already.
 3. Download and configure the OpenTok iOS SDK from http://tokbox.com/opentok/libraries/client/ios/ - *Carefully* follow the instructions on that page to set up OpenTok, it's a little tricky
-4. In your project's build settings, set the `Architectures` setting to `$(ARCHS_STANDARD_32_BIT)` 
+4. In your project's build settings, set the `Architectures` setting to `$(ARCHS_STANDARD_32_BIT)`
 
 ### Code Changes
 
@@ -52,7 +54,7 @@ Limitations
 
 * The backend currently supports only one connection at a time. We're toying with multiple session support and queueing but would love some help!
 * Apps must be compiled for 32 bit ARM (can't be built specifically for iPhone 5S) - this is purely an OpenTok limitation.
-* It's buggy, but fun!
+* It's buggy, but fun. Enjoy!
 
 
 Stay groovy, brothers & sisters!
