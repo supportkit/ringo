@@ -1,0 +1,61 @@
+extends layout
+
+block content
+
+  //- 
+  //- Connection status
+  //- 
+  .leftPanel
+    img.logo(src='/img/logo.png')
+    #connectionIndicator
+      span.disconnected
+        | Disconnected
+    #connectButton.connect.btn.btn-primary.secondary
+
+  //- 
+  //- Self video
+  //- 
+  .rightPanel
+    .video-wrapper
+      #localVideoElement
+
+  hr.separator
+
+  //- 
+  //- Remote viewer
+  //- 
+  .bottomPanel
+    #mirrorContainer.landscape
+      img(src='/img/screenshot.jpg' visibility=hidden)
+      canvas#drawCanvas
+    .toolbar
+      .btn-group-vertical(data-toggle='buttons')
+        label#signalTool.btn.btn-primary
+          input(type='radio')
+          i.fa.fa-dot-circle-o.fa-1x
+        label#drawTool.btn.btn-primary
+          input(type='radio')
+          i.fa.fa-pencil.fa-1x
+      br
+      br
+      label#clearTool.btn.btn-primary
+        i.fa.fa-times.fa-1x
+
+  //-
+  //- Debugging
+  //-
+  .debugPanel
+    br
+    .well
+      b Debug panel
+      p
+        | Session ID:
+        span#sessionId
+      form#connectAsUser(name="input")
+        | Name:
+        input#name(type="text", name="name", value="John")
+        input(type="submit", value="Connect as User")
+      button#restart New Session
+      .video-wrapper
+        h2#themTag Them:
+        #remoteVideoElement
