@@ -5,19 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>C6B40203-8274-49CB-A6FF-93DCA8DB19CC</string>
+	<string>8FD45E8B-C70E-4938-856D-CB826E474E67</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AwesomeApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>541A9CD4-A002-47E3-8CF7-502A9055755F</key>
+		<key>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</key>
 		<string>ssh://github.com/radialpoint/ringo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AwesomeApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>541A9CD4-A002-47E3-8CF7-502A9055755F</key>
+		<key>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>541A9CD4-A002-47E3-8CF7-502A9055755F</string>
+	<string>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>541A9CD4-A002-47E3-8CF7-502A9055755F</string>
+			<string>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ringo</string>
 		</dict>

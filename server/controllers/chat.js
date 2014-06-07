@@ -1,12 +1,13 @@
-var key = 44833552;
-var secret = '625d72deed2e156b9a895a6794cd4e2c37c2c069';
+var secrets = require('../config/secrets');
+if (!secrets.openTok.key || !secrets.openTok.secret) {
+    console.error('Missing OpenTok key and secret in config/secrets.js');
+}
 var OpenTok = require('opentok');
-var opentok = new OpenTok(key, secret);
+var opentok = new OpenTok(secrets.openTok.key, secrets.openTok.secret);
 var async = require('async');
 var Chat = require('../models/Chat');
 
 // Our global sessionId
-var location = '127.0.0.1';
 var sessionId = '';
 var agentName = 'Amy';
 
@@ -67,11 +68,6 @@ exports.chat = function(req, res) {
                 console.log('Getting token ' + sid);
                 responseObj.sessionId = sid;
                 responseObj.token = opentok.generateToken(sid);
-                // responseObj.token = opentok.generateToken(sid, {
-                //     role: 'moderator',
-                //     expireTime : (new Date().getTime() / 1000)+(7 * 24 * 60 * 60),
-                //     data: 'name=' + name
-                // });
                 console.log("Response Object: " + JSON.stringify(responseObj));
                 callback(null, responseObj);
             }

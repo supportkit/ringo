@@ -3,6 +3,12 @@ module.exports = {
         production: process.env.MONGOHQ_URL,
         development: 'mongodb://localhost/ringo-dev'
     },
+
+    openTok: {
+        key: 0,
+        secret: ''
+    },
+
     sendgrid: {
         user: 'Your SendGrid Username',
         password: 'Your SendGrid Password'
