@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>CF133B7F-5BA7-40C4-91D9-FC50D8C88427</string>
+	<string>8FD45E8B-C70E-4938-856D-CB826E474E67</string>
 	<key>IDESourceControlProjectName</key>
 	<string>AwesomeApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>49A064BB-42F7-494E-979C-A77EDF2F1B59</key>
-		<string>http://git.rp.corp/scm/csa/maydaysdk.git</string>
+		<key>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</key>
+		<string>ssh://github.com/radialpoint/ringo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>sdk/AwesomeApp/AwesomeApp.xcodeproj/project.xcworkspace</string>
+	<string>AwesomeApp.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>49A064BB-42F7-494E-979C-A77EDF2F1B59</key>
-		<string>../../../..</string>
+		<key>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://git.rp.corp/scm/csa/maydaysdk.git</string>
+	<string>ssh://github.com/radialpoint/ringo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>49A064BB-42F7-494E-979C-A77EDF2F1B59</string>
+	<string>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>49A064BB-42F7-494E-979C-A77EDF2F1B59</string>
+			<string>B7F4272C-830D-44FB-AE6F-C71E2BD1644C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>maydaysdk</string>
+			<string>ringo</string>
 		</dict>
 	</array>
 </dict>
