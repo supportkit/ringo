@@ -52,14 +52,19 @@ The web app and backend exist as a node.js + express + MongoDB application locat
 
 To run it locally you must first have node.js (http://nodejs.org/) installed. You must also have a  running MongoDB instance handy. You can install MongoDB and run it locally (http://docs.mongodb.org/manual/installation/) or you can use a service such as MongoHQ (mongohq.com) if you prefer. You can specify your mongo URL in `server/config/secrets.js`, which points to localhost by default.
 
-Once you have your prerequisites set up, install the npm pacakge dependencies:
+Once you have your prerequisites set up,
 
+1. Install the npm pacakge dependencies:
+
+    ```
     cd server
     npm install
-
-And start the application like so:
-
+    ```
+2. Configure your OpenTok key and secret in `server/config/secrets.js`
+3. Start the application like so:
+    ```
     node app.js
+    ```
 
 You should now see the web app running at http://localhost:3000
 
