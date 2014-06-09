@@ -1,3 +1,17 @@
+`objective-ddp`
+===============
+
+In this branch represents ongoing work to replace Ringo's cumbersome socket.io + http screenshot posting mechanisms with a better alternative using meteor.js (http://meteor.com) and DDP. It's not currently in a working state, this is a work in progress.
+
+### Todo:
+
+- [x] Sample app is now using [ObjectiveDDP](https://github.com/boundsj/ObjectiveDDP). It can connect to the meteor backend but not much else
+- [x] Simple browser-to-browser OpenTok sessions
+- [ ] Implement browser-to-ios OpenTok sessions
+- [ ] Upload device screenshots using something like [CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS)
+- [ ] Remote agent drawing/signalling on iOS screen
+- [ ] Implement a simple agent/endUser identification
+
 Ringo
 ============
 
