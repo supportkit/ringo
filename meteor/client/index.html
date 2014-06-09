@@ -1,0 +1,24 @@
+<head>
+    <title>Ringo on Meteor!</title>
+</head>
+
+<body>
+    {{> toolbar}}
+    {{> main}}
+</body>
+
+<template name="toolbar">
+    <button id="newChat" class="newChat">
+      New Chat
+    </button>
+
+    <button id="endChat" class="endChat">
+      End Chat
+    </button>
+</template>
+
+<template name="main">
+    {{#each chats}}
+        {{name}}<br/>
+    {{/each}}
+</template>
