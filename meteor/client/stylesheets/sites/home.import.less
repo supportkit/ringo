@@ -1,0 +1,288 @@
+// Scaffolding
+// -------------------------
+@footer-height: 80px;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  padding-top: 20px;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -@footer-height;
+  /* Pad bottom by footer height + (optional) extra spacing */
+  padding: 0 0 @footer-height+20px;
+}
+
+#footer {
+  height: @footer-height;
+  padding-top: 10px;
+  color: @navbar-inverse-color;
+  background-color: @navbar-default-bg;
+  border-top: 1px solid @navbar-default-border;
+}
+
+// Navbar
+// -------------------------
+
+@navbar-height: 45px;
+
+.navbar-brand {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+Cjxzdmcgd2lkdGg9IjkwIiBoZWlnaHQ9IjkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KICA8IVtDREFUQVsNCgkuc3Qwe2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzQ2NDgzRTt9DQoJLnN0MXtmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDtmaWxsOiM4Q0M4NEI7fQ0KCS5zdDJ7b3BhY2l0eTowLjU7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojQThBOEE4O30NCgkuc3Qze29wYWNpdHk6MC41O2ZpbGwtcnVsZTpldmVub2RkO2NsaXAtcnVsZTpldmVub2RkO2ZpbGw6IzQ2NDY0Njt9DQpdXT4KIDwvc3R5bGU+CgogPGc+CiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPgogIDxyZWN0IGZpbGw9Im5vbmUiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI5MiIgd2lkdGg9IjkyIiB5PSItMSIgeD0iLTEiLz4KIDwvZz4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8cGF0aCBpZD0ic3ZnXzEiIGQ9Im03OS4wMTAwMDIsMzguOTYwNjMyYzEuMTk5OTk3LC0wLjY4OTk5OSAxLjkzLC0xLjk3MDAwMSAxLjkzLC0zLjM2MDAwMWwwLC04Ljk5OTk5OGMwLC0xLjM4MDAwMSAtMC43NDAwMDUsLTIuNjYgLTEuOTMsLTMuMzYwMDAxbC0zMS45NTk5OTksLTE4LjU1OTk5OWMtMS4yMDAwMDUsLTAuNzAwMDAxIC0yLjY5MDAwMiwtMC43MDAwMDEgLTMuODkwMDAzLC0wLjAxbC0zMi4xNjAwMDMsMTguNTdjLTEuMjAwMDAxLDAuNjg5OTk5IC0xLjkzOTk5OSwxLjk4IC0xLjkzOTk5OSwzLjM2MDAwMWwwLDM3LjEyOTk5OWMwLDEuMzkwMDAzIDAuNzUsMi42ODAwMDQgMS45NTk5OTksMy4zODAwMDlsMzEuOTYwMDA2LDE4LjIwOTk5MWMxLjE3OTk5NiwwLjY2OTk5OCAyLjYxOTk5NSwwLjY4MDAwOCAzLjgwOTk5NCwwLjAyMDAwNGwxOS4zMjAwMDQsLTEwLjc1YzAuNjEwMDAxLC0wLjMzOTk5NiAxLC0wLjk4MDAwMyAxLC0xLjY4MDAwOGMwLjAxMDAwMiwtMC42OTk5ODkgLTAuMzcwMDAzLC0xLjM0OTk5OCAtMC45NzAwMDEsLTEuNjk5OTg5bC0zMi4zNjAwMDQsLTE4LjU3MDAwN2MtMC41OTk5OTUsLTAuMzQ5OTk1IC0wLjk4LC0wLjk4OTk5OCAtMC45OCwtMS42ODk5OTlsMCwtMTEuNjI5OTk3YzAsLTAuNjkwMDA2IDAuMzcwMDAzLC0xLjMzMDAwNiAwLjk3MDAwMSwtMS42ODAwMDRsMTAuMDcsLTUuODAwMDAxYzAuNjAwMDA2LC0wLjM0OTk5OCAxLjM0MDAwNCwtMC4zNDk5OTggMS45Mzk5OTksMGwxMC4wODAwMDYsNS44MDAwMDFjMC41OTk5OTgsMC4zNDk5OTggMC45Njk5OTcsMC45ODk5OTggMC45Njk5OTcsMS42ODAwMDRsMCw5LjE1OTk5NmMwLDAuNjg5OTk5IDAuMzY5OTk5LDEuMzI5OTk4IDAuOTcwMDA1LDEuNjc5OTk2YzAuNTk5OTk4LDAuMzQ5OTk4IDEuMzM5OTk2LDAuMzQwMDA0IDEuOTM5OTk1LC0wLjAwOTk5NWwxOS4yNzAwMDQsLTExLjE5MDAwMnoiIGNsYXNzPSJzdDAiLz4KICA8cGF0aCBpZD0ic3ZnXzIiIGQ9Im00NC42MjUsMzcuMjU5ODNjMC4yMzAwMDMsLTAuMTMwMDAxIDAuNTA5OTk1LC0wLjEzMDAwMSAwLjc1LDBsNi4xNzAwMDYsMy41NTk5OThjMC4yMjk5ODgsMC4xMzk5OTkgMC4zNjk5OTUsMC4zNzk5OTcgMC4zNjk5OTUsMC42Mzk5OTlsMCw3LjEyOTk5N2MwLDAuMjYwMDAyIC0wLjE0MDAwNywwLjUxMDAwMiAtMC4zNjk5OTUsMC42NTAwMDJsLTYuMTcwMDA2LDMuNTU5OTk4Yy0wLjIzMDAwMywwLjEzMDAwNSAtMC41MTAwMDIsMC4xMzAwMDUgLTAuNzUsMGwtNi4xNjk5OTgsLTMuNTU5OTk4Yy0wLjIzMDAwMywtMC4xMzk5OTkgLTAuMzY5OTk5LC0wLjM3OTk5NyAtMC4zNjk5OTksLTAuNjUwMDAybDAsLTcuMTI5OTk3YzAsLTAuMjY5OTk3IDAuMTM5OTk2LC0wLjUxMDAwMiAwLjM2OTk5OSwtMC42Mzk5OTlsNi4xNjk5OTgsLTMuNTU5OTk4eiIgY2xhc3M9InN0MSIvPgogIDxnIGlkPSJzdmdfNSIvPgogIDxnIGlkPSJzdmdfNiIvPgogIDxnIGlkPSJzdmdfNyIvPgogIDxnIGlkPSJzdmdfOCIvPgogIDxnIGlkPSJzdmdfOSIvPgogIDxnIGlkPSJzdmdfMTAiLz4KICA8ZyBpZD0ic3ZnXzExIi8+CiAgPGcgaWQ9InN2Z18xMiIvPgogIDxnIGlkPSJzdmdfMTMiLz4KICA8ZyBpZD0ic3ZnXzE0Ii8+CiAgPGcgaWQ9InN2Z18xNSIvPgogIDxnIGlkPSJzdmdfMTYiLz4KICA8ZyBpZD0ic3ZnXzE3Ii8+CiAgPGcgaWQ9InN2Z18xOCIvPgogIDxnIGlkPSJzdmdfMTkiLz4KICA8ZyBpZD0ic3ZnXzIwIi8+CiAgPGcgaWQ9InN2Z18yMSIvPgogIDxnIGlkPSJzdmdfMjIiLz4KIDwvZz4KPC9zdmc+);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: left center;
+  padding-left: 40px;
+  margin-left: 15px;
+}
+
+.navbar-nav .profile-image {
+  width: 30px;
+  height: 30px;
+  margin: -15px 15px -15px 0;
+}
+
+// Social Buttons
+// -------------------------
+
+.btn-facebook {
+  color: #fff;
+  background: #3b5998;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-twitter {
+  color: #fff;
+  background: #00aced;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-google-plus {
+  color: #fff;
+  background: #dd4b39;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-github {
+  color: #fff;
+  background: #333;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+// Extra space between font-awesome icons and text
+// [class^="fa-"],
+// [class*="fa-"] {
+//   margin-right: 5px;
+// }
+
+
+//
+// Ringo Stuff
+//
+@primary-color: #fe4918;
+@secondary-color: #373737;
+
+
+[class*="fa-"] {
+  margin-right: 0px;
+}
+
+.container {
+  width: 800px;
+}
+
+.logo {
+
+  height: 68px;
+}
+
+hr {
+  border-top: 1px solid #cbcbcb;
+}
+
+.btn {
+  margin: 0 0px 0px 0;
+}
+
+.btn-primary[disabled] {
+  background: @primary-color;
+  border-color: @primary-color;
+  &:hover,
+  &.active {
+    background: transparent;
+    color: @primary-color;
+    border-color: @primary-color;
+  }
+}
+
+.btn-primary.secondary {
+  background: @secondary-color;
+  border-color: @secondary-color;
+
+  &:hover,
+  &.active {
+    background: transparent;
+    color: @secondary-color;
+    border-color: @secondary-color;
+  }
+}
+
+.btn-primary.secondary[disabled] {
+  background: @secondary-color;
+  border-color: @secondary-color;
+  &:hover,
+  &.active {
+    background: transparent;
+    color: @secondary-color;
+    border-color: @secondary-color;
+  }
+}
+
+.leftPanel {
+  float: left;
+  height: 174px;
+  width: 400px;
+  margin-right: 2em;
+}
+
+.rightPanel {
+  float: right;
+  width: 200px;
+}
+
+hr.separator {
+  clear: both;
+}
+
+.bottomPanel {
+  clear: both;
+  width: 100%;
+}
+
+.nameTag {
+  color: @primary-color;
+  font-weight: bold;
+}
+
+.disconnected {
+  color: grey;
+}
+
+.connected {
+  color: black;
+}
+
+.connect:after {
+  content: "Connect";
+}
+
+.disconnect:after {
+  content: "Disconnect"
+}
+
+#connectionIndicator {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+#mirrorContainer.landscape {
+  float: right;
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto;
+  background-image: url('/img/ipad_mini_landscape.jpg');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  width: 600px;
+  height: 403px;
+
+  img {
+    margin-top: 21px;
+    margin-left: 60px;
+    width: 480px;
+    height: 360px;
+    visibility: hidden;
+  }
+  canvas {
+    position: absolute;
+    margin-top: 21px;
+    margin-left: -480px;
+    width: 480px;
+    height: 360px;
+  }
+}
+
+#mirrorContainer.portrait {
+  float: right;
+  margin-left: auto;
+  margin-right: auto;
+  background-image: url('/img/ipad_mini_portrait.jpg');
+  background-size:100% 100%;
+  background-repeat: no-repeat;
+  width: 403px;
+  height: 600px;
+
+  img {
+    margin-top: 60px;
+    margin-left: 21px;
+    width: 360px;
+    height: 480px;
+    visibility: hidden;
+  }
+  canvas {
+    position: absolute;
+    margin-top: 60px;
+    margin-left: -360px;
+    width: 360px;
+    height: 480px;
+  }
+}
+
+.toolbar {
+  float: left;
+  position: absolute;
+  margin: 0;
+  top: 216px;
+}
+
+h1.title {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.video-wrapper {
+  float: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: @primary-color;
+  border-radius: 4px;
+  width: 202px;
+  height: 152px;
+}
+
+.debugPanel {
+  clear: both;
+  display: none;
+}

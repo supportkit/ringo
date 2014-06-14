@@ -3,22 +3,57 @@
 </head>
 
 <body>
-    {{> toolbar}}
+    {{> toolbar}}<br/>
+    <div id="connectionIndicator">
+      <span class="disconnected">Disconnected</span>
+    </div>
+    <div class="video-wrapper">
+        <div id="localVideoElement"></div>
+    </div>
+    <div class="video-wrapper">
+        <div id="remoteVideoElement"></div>
+    </div>
+
+    <hr class="separator"/>
+    
     {{> main}}
 </body>
 
 <template name="toolbar">
-    <button id="newChat" class="newChat">
-      New Chat
-    </button>
+    <div data-toggle="buttons" class="btn-group">
+        <label id="signalTool" class="btn btn-primary amy">
+            <input type="radio">Amy
+        </label>
+        <label id="drawTool" class="btn btn-primary bob">
+            <input type="radio">Bob
+        </label>
+    </div>
+    <button class="btn btn-default connect"></button>
+    <button class="btn btn-default disconnect"></button>
 
-    <button id="endChat" class="endChat">
-      End Chat
-    </button>
+    <button class="btn btn-default reset">Reset</button>
 </template>
 
 <template name="main">
-    {{#each chats}}
-        {{name}}<br/>
+    <h1>Users in the Lobby:</h1>
+    <ul>
+    {{#each lobby}}
+        <li>{{username}}</li>
     {{/each}}
+    </ul>
+
+    <h1>Ongoing chats:</h1>
+    {{#each chats}}
+        {{> chat}}
+    {{/each}}
+</template>
+
+<template name="chat">
+    <h1>A Chat</h1>
+    The Participants:
+    <ul>
+        {{#each participants}}
+            <li>{{username}}</li>
+        {{/each}}
+    </ul>
 </template>
