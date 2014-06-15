@@ -18,6 +18,17 @@ Template.toolbar.events({
         Meteor.call('disconnect', getUserId());
     },
 
+    'click button.draw': function() {
+        Chats.update(getChatId(), {
+            $set: {
+                ping: {
+                    x: 100,
+                    y: 100
+                }
+            }
+        });
+    },
+
     'click button.reset': function() {
         Meteor.call('reset');
     }
@@ -42,10 +53,12 @@ Template.chat.participants = function() {
     });
 };
 
-function getChat() {
-    return _user && Chats.findOne({
+function getChatId() {
+    var chat = _user && Chats.findOne({
         participants: getUserId()
     });
+
+    return chat && chat._id;
 }
 
 function getUserId() {
