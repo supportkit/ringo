@@ -1,11 +1,10 @@
 Meteor.startup(function() {
     console.log('meteor startup!');
 
-    var key = parseInt(process.env.OPENTOK_KEY);
-    var secret = process.env.OPENTOK_SECRET;
+    var key = parseInt(process.env.OPENTOK_KEY || Meteor.settings.env.OPENTOK_KEY);
+    var secret = process.env.OPENTOK_SECRET || Meteor.settings.env.OPENTOK_SECRET;
     var opentok = new Meteor.require('opentok')(key, secret);
 
-    console.log(key + ' ' + secret);
     if (!key || !secret) {
         console.error('Missing opentok credentials');
     }
@@ -96,12 +95,14 @@ Meteor.startup(function() {
                 // We found a match, create a new chat
                 Users.update(endUser._id, {
                     $set: {
-                        state: 'chat'
+                        state: 'chat',
+                        otKey: '' + key
                     }
                 });
                 Users.update(agent._id, {
                     $set: {
-                        state: 'chat'
+                        state: 'chat',
+                        otKey: '' + key
                     }
                 });
                 createChat([agent._id, endUser._id]);

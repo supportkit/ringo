@@ -25,6 +25,4 @@
 
 +(void)showTime;
 
-+ (void) startVideo;
-
 @end

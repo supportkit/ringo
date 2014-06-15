@@ -20,7 +20,6 @@
 
 @interface RGOVideoViewController : UIViewController
 
--(void)startVideo;
 +(RGOVideoViewController*)addTo:(UIViewController*)parent;
 
 -(void)hide;

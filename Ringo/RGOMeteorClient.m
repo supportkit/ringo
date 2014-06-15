@@ -3,10 +3,12 @@
 //  AwesomeApp
 //
 //  Created by Andrew Lavers on 2014-06-14.
-//  Copyright (c) 2014 Jean-Philippe Joyal. All rights reserved.
+//  Copyright (c) 2014 Radialpoint. All rights reserved.
 //
 
 #import "RGOMeteorClient.h"
+
+NSString* const RGOChatConnected = @"RGOChatConnected";
 
 @interface RGOMeteorClient()
 
@@ -14,6 +16,10 @@
 @property (strong, nonatomic) NSMutableArray *users;
 @property (strong, nonatomic) NSMutableArray *chats;
 @property NSString *username;
+@property NSString *userId;
+@property NSString *token;
+@property NSDictionary *user;
+@property NSDictionary *chat;
 
 @end
 
@@ -26,8 +32,6 @@
         self.username = @"Bob";
         
         self.meteorClient = [[MeteorClient alloc] initWithDDPVersion:@"pre2"];
-        [self.meteorClient addSubscription:@"users" withParameters:@[self.username]];
-        [self.meteorClient addSubscription:@"chats" withParameters:@[self.username]];
         ObjectiveDDP *ddp = [[ObjectiveDDP alloc] initWithURLString:[url absoluteString] delegate:self.meteorClient];
         self.meteorClient.ddp = ddp;
         
@@ -49,16 +53,49 @@
     return self;
 }
 
+- (void)joinLobby;
+{
+    [self login];
+}
+
+- (void)leaveChat;
+{
+    if (self.userId && self.meteorClient.connected) {
+        [self.meteorClient callMethodName:@"disconnect" parameters:@[self.userId] responseCallback:nil];
+    }
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
                        context:(void *)context {
     if ([keyPath isEqualToString:@"websocketReady"] && self.meteorClient.websocketReady) {
         NSLog(@"====> websocketReady, fetching user info");
-        [self refreshData];
     } else {
         NSLog(@"====> DISCONNECTED websocketReady");
     }
+}
+
+- (void)login {
+    [self.meteorClient callMethodName:@"login" parameters:@[self.username] responseCallback:^(NSDictionary *response, NSError *error) {
+        if(error) {
+            NSLog(@"Error logging in: %@", error);
+        } else {
+            NSDictionary *user = response[@"result"];
+            [self onLoginSuccess:user];
+        }
+    }];
+}
+
+- (void)onLoginSuccess:(NSDictionary *)response {
+    NSLog(@"Login success, user: %@", response);
+    
+    self.userId = [response valueForKey:@"_id"];
+    [self.meteorClient addSubscription:@"users" withParameters:@[self.userId]];
+    [self.meteorClient addSubscription:@"chats" withParameters:@[self.userId]];
+    
+    // Join the lobby, wait to receive an OpenTok token in onDataChange
+    [self.meteorClient callMethodName:@"connect" parameters:@[self.userId] responseCallback:nil];
 }
 
 - (void)onConnect {
@@ -71,21 +108,18 @@
 
 - (void)onDataChange:(NSNotification *)notification {
     NSDictionary *dict = [notification userInfo];
-    
-    NSLog(@"Received a user/chats changed/added/removed notification");
-    NSLog(@"There are %d cached users", [self.users count]);
-    NSLog(@"There are %d cached chats", [self.chats count]);
-    
-    NSLog(@"There are %d meteor users", [self.meteorClient.collections[@"users"] count]);
-    NSLog(@"There are %d meteor chats", [self.meteorClient.collections[@"chats"] count]);
-}
+    NSLog(@"Observed a data change: %@", dict);
 
-- (void)refreshData {
-    self.users = self.meteorClient.collections[@"users"];
-    NSLog(@"Found %d users", self.users.count);
+    self.user = [self.meteorClient.collections[@"users"] firstObject];
+    self.chat = [self.meteorClient.collections[@"chats"] firstObject];
     
-    self.chats = self.meteorClient.collections[@"chats"];
-    NSLog(@"Found %d chats", self.users.count);
+    // Detect & fire OpenTok connected event
+    NSString *newToken = [dict valueForKey:@"token"];
+    if (newToken && ![newToken isEqualToString:self.token]) {
+        self.token = newToken;
+        NSLog(@"Got a new token, signal OpenTok client to connect");
+        [[NSNotificationCenter defaultCenter] postNotificationName:RGOChatConnected object:self userInfo:self.user];
+    };
 }
 
 @end

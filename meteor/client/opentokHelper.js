@@ -1,6 +1,5 @@
-//TODO: Meteor environment var?
-var key = 44833552;
 var session;
+var otKey;
 
 OpentokHelper = {
     disconnect: function() {
@@ -10,6 +9,7 @@ OpentokHelper = {
     },
 
     connect: function(user) {
+        otKey = user.otKey;
         console.log('Connecting to OpenTok session ' + user.sessionId);
 
         TB.addEventListener("exception", exceptionHandler);
@@ -18,13 +18,13 @@ OpentokHelper = {
         session.addEventListener("sessionConnected", sessionConnectedHandler);
         session.addEventListener("streamCreated", streamCreatedHandler);
         session.addEventListener("sessionDisconnected", streamDisconnectedHandler);
-        session.connect(key, user.token);
+        session.connect(otKey, user.token);
 
         function sessionConnectedHandler(event) {
             console.log('TB: session connected');
             subscribeToStreams(event.streams);
 
-            var publisher = TB.initPublisher(key,
+            var publisher = TB.initPublisher(otKey,
                 "localVideoElement", {
                     width: 200,
                     height: 150

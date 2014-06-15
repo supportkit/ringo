@@ -70,8 +70,4 @@ static RGOOverlayWindow* theWindow;
     [[RGOVideoViewController sharedInstance] show];
 }
 
-+ (void) startVideo{
-    [[RGOVideoViewController sharedInstance] startVideo];
-}
-
 @end

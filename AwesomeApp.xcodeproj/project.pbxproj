@@ -952,7 +952,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/openTok",
 					"$(PROJECT_DIR)/Ringo/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/openTok",
 				);
@@ -986,7 +985,6 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/openTok",
 					"$(PROJECT_DIR)/Ringo/ThirdParty",
 					"$(PROJECT_DIR)/ThirdParty/openTok",
 				);

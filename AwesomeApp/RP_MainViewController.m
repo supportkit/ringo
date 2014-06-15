@@ -8,15 +8,9 @@
 
 #import "RP_MainViewController.h"
 #import "Ringo.h"
-#import "RGOMeteorClient.h"
-
-//static NSString* const socketUrl = @"ws://localhost:3000/websocket";
-//static NSString* const socketUrl = @"wss://ringo.meteor.com/websocket";
-static NSString* const socketUrl = @"wss://alavers.meteor.com/websocket";
 
 @interface RP_MainViewController ()
 @property UILabel* countLabel;
-@property RGOMeteorClient* meteorClient;
 @end
 
 @implementation RP_MainViewController
@@ -44,13 +38,10 @@ static NSString* const socketUrl = @"wss://alavers.meteor.com/websocket";
     self.countLabel.frame = self.view.frame;
     self.countLabel.font = [UIFont systemFontOfSize:36];
     [self.view addSubview:self.countLabel];
-
-    NSLog(@"Creating meteor client");
-    self.meteorClient = [[RGOMeteorClient alloc]initWithURL:[NSURL URLWithString:socketUrl]];
 }
 
 - (void)helpcenter{
-//    [Ringo showTime];
+    [Ringo showTime];
 }
 
 @end

@@ -7,10 +7,41 @@ In this branch represents ongoing work to replace Ringo's cumbersome socket.io +
 
 - [x] Sample app is now using [ObjectiveDDP](https://github.com/boundsj/ObjectiveDDP). It can connect to the meteor backend but not much else
 - [x] Simple browser-to-browser OpenTok sessions
-- [ ] Implement browser-to-ios OpenTok sessions
-- [ ] Upload device screenshots using something like [CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS)
+- [x] Implement browser-to-ios OpenTok sessions
 - [ ] Remote agent drawing/signalling on iOS screen
+- [ ] Upload device screenshots using something like [CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS)
 - [ ] Implement a simple agent/endUser identification
+
+### Meteor instructions:
+
+You must run and deploy the meteor application from the meteor subdirectory:
+
+```
+$ cd meteor
+```
+
+Your OpenTok account credentials must be supplied via a ```settings.json``` file, for example:
+
+```
+{
+    "env": {
+        "OPENTOK_KEY": 1234567890,
+        "OPENTOK_SECRET": "abcdefg1234567890"
+    }
+}
+```
+
+When you run the application, specify these settings on the command line:
+
+```
+$ meteor --settings settings.json
+```
+
+You must also specify these settings when you deploy:
+
+```
+$ meteor deploy --settings settings.json yoursite.meteor.com
+```
 
 Ringo
 ============

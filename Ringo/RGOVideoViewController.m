@@ -24,13 +24,14 @@ THIS SOFTWARE IS PROVIDED ''AS IS'', AND ANY EXPRESS OR IMPLIED WARRANTIES, INCL
 #import "RGOScreenCaptureThread.h"
 #import "SocketIO.h"
 #import "SocketIOPacket.h"
+#import "RGOMeteorClient.h"
 
-
-static NSString* const kApiKey = @"44632561";
+static NSString* const socketUrl = @"wss://alavers.meteor.com/websocket";
 static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 
 @interface RGOVideoViewController ()
 
+@property RGOMeteorClient* meteorClient;
 @property(nonatomic, strong) OTSession* session;
 @property(nonatomic, strong) OTPublisher* publisher;
 @property(nonatomic, strong) OTSubscriber* subscriber;
@@ -89,8 +90,8 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 
 -(void)show
 {
+    [self.meteorClient joinLobby];
     self.view.alpha = 1;
-    [self startVideo];
 }
 
 - (id)init {
@@ -100,6 +101,10 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
         
         [self initDragView];
         self.view.alpha = 0;
+        
+        self.meteorClient = [[RGOMeteorClient alloc]initWithURL:[NSURL URLWithString:socketUrl]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onChatConnected:) name:RGOChatConnected object:nil];
     }
     return self;
 }
@@ -162,18 +167,16 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 
 #pragma mark - OpenTok methods
 
-- (void)startVideo {
-    self.apiClient = [[RGOOpenTokApiClient alloc] initWithBaseURL:[NSURL URLWithString:kApiEndpoint]];
+- (void)onChatConnected:(NSNotification *)notification {
+    NSDictionary *response = [notification userInfo];
+    NSString* token = [response objectForKey:@"token"];
+    NSString* sessionId = [response objectForKey:@"sessionId"];
+    NSString* otKey = [response objectForKey:@"otKey"];
     
-    [self.apiClient getTokBoxInfoWithBlock:^(NSDictionary *result, NSError *error) {
-        NSString* token = [result objectForKey:@"token"];
-        NSString* sessionId = [result objectForKey:@"sessionId"];
-
-        self.session = [[OTSession alloc] initWithSessionId:sessionId delegate:self];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.session connectWithApiKey:kApiKey token:token];
-        });
-    }];
+    self.session = [[OTSession alloc] initWithSessionId:sessionId delegate:self];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.session connectWithApiKey:otKey token:token];
+    });
 }
 
 - (void)doPublish
@@ -435,6 +438,7 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 }
 
 - (void) disconnect{
+    [self.meteorClient leaveChat];
     if(self.session){
         [self.session disconnect];
     }
