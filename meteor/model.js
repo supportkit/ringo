@@ -18,25 +18,29 @@ if (Meteor.isServer) {
     //
     // Create mock data
     //
-    if (Users.find().count() === 0) {
-        Users.insert({
-            username: 'Amy',
-            role: 'agent',
-            state: 'idle'
-        });
+    var testUsers = [{
+        username: 'Amy',
+        role: 'agent',
+        state: 'idle'
+    }, {
+        username: 'Bob',
+        role: 'endUser',
+        state: 'idle'
+    }];
 
-        Users.insert({
-            username: 'Bob',
-            role: 'endUser',
-            state: 'idle'
-        });
-    }
-
-    Meteor.publish('users', function (username) {
-        return Users.find({username: username});
+    _.each(testUsers, function(user) {
+        Users.upsert({
+            username: user.username
+        }, user);
     });
 
-    Meteor.publish('chats', function (username) {
-        return Chats.find({participants: username});
-    });  
+    Meteor.publish('users', function(userId) {
+        return Users.find(userId);
+    });
+
+    Meteor.publish('chats', function(userId) {
+        return Chats.find({
+            participants: userId
+        });
+    });
 }

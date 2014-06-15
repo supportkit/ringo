@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494A3E25194D0D4600241B12 /* RGOMeteorClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A3E24194D0D4600241B12 /* RGOMeteorClient.m */; };
 		496B2080194245D200AEB5E6 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2002194245D200AEB5E6 /* AFHTTPRequestOperation.m */; };
 		496B2081194245D200AEB5E6 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2004194245D200AEB5E6 /* AFHTTPRequestOperationManager.m */; };
 		496B2082194245D200AEB5E6 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2006194245D200AEB5E6 /* AFHTTPSessionManager.m */; };
@@ -102,6 +103,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		494A3E23194D0D4600241B12 /* RGOMeteorClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGOMeteorClient.h; sourceTree = "<group>"; };
+		494A3E24194D0D4600241B12 /* RGOMeteorClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGOMeteorClient.m; sourceTree = "<group>"; };
 		496B2001194245D200AEB5E6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		496B2002194245D200AEB5E6 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		496B2003194245D200AEB5E6 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -291,8 +294,8 @@
 		9FE20D3218524EA4004B116D /* AwesomeAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AwesomeAppTests.m; sourceTree = "<group>"; };
 		9FE20D3C18524EC2004B116D /* RP_MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_MainViewController.m; sourceTree = "<group>"; };
 		9FE20D3D18524EC2004B116D /* RP_MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_MainViewController.h; sourceTree = "<group>"; };
-		F5A529141941513800FCD94B /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = "ThirdParty/openTok/Opentok.framework"; sourceTree = "<group>"; };
-		F5A529161941514900FCD94B /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = opentok.bundle; path = "ThirdParty/openTok/Opentok.framework/Versions/A/Resources/opentok.bundle"; sourceTree = "<group>"; };
+		F5A529141941513800FCD94B /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Opentok.framework; path = ThirdParty/openTok/Opentok.framework; sourceTree = "<group>"; };
+		F5A529161941514900FCD94B /* opentok.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = opentok.bundle; path = ThirdParty/openTok/Opentok.framework/Versions/A/Resources/opentok.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +530,8 @@
 				9F1664701940E299004AD2AF /* Ringo.h */,
 				9F1664711940E299004AD2AF /* Ringo.m */,
 				9F1664721940E299004AD2AF /* Views */,
+				494A3E23194D0D4600241B12 /* RGOMeteorClient.h */,
+				494A3E24194D0D4600241B12 /* RGOMeteorClient.m */,
 			);
 			path = Ringo;
 			sourceTree = "<group>";
@@ -812,6 +817,7 @@
 				496B208C194245D200AEB5E6 /* MeteorClient+Parsing.m in Sources */,
 				9FE20D1E18524EA4004B116D /* RP_AppDelegate.m in Sources */,
 				496B2081194245D200AEB5E6 /* AFHTTPRequestOperationManager.m in Sources */,
+				494A3E25194D0D4600241B12 /* RGOMeteorClient.m in Sources */,
 				496B2095194245D200AEB5E6 /* SocketIOTransportXHR.m in Sources */,
 				496B2093194245D200AEB5E6 /* SocketIOPacket.m in Sources */,
 				9F16648B1940E299004AD2AF /* RGOOverlayWindow.m in Sources */,
@@ -955,13 +961,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/ThirdParty/**",
 				);
 				INFOPLIST_FILE = "AwesomeApp/AwesomeApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/ObjectiveDDP",
+					"$(PROJECT_DIR)/ThirdParty/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -989,13 +995,13 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/**",
+					"$(PROJECT_DIR)/ThirdParty/**",
 				);
 				INFOPLIST_FILE = "AwesomeApp/AwesomeApp-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/ThirdParty/ObjectiveDDP",
+					"$(PROJECT_DIR)/ThirdParty/**",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

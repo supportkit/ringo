@@ -1,6 +1,4 @@
-function getUsername() {
-    return Session.get('username');
-}
+var _user;
 
 Template.toolbar.events({
     'click .amy': function() {
@@ -12,12 +10,12 @@ Template.toolbar.events({
     },
 
     'click button.connect': function() {
-        Meteor.call('connect', getUsername());
+        Meteor.call('connect', getUserId());
     },
 
     'click button.disconnect': function() {
         OpentokHelper.disconnect();
-        Meteor.call('disconnect', getUsername());
+        Meteor.call('disconnect', getUserId());
     },
 
     'click button.reset': function() {
@@ -31,39 +29,57 @@ Template.main.chats = function() {
 };
 
 Template.main.lobby = function() {
-    return Users.find({state: 'lobby'});
+    return Users.find({
+        state: 'lobby'
+    });
 };
 
 Template.chat.participants = function() {
-    return Users.find({_id: {$in: this.participants}});
+    return Users.find({
+        _id: {
+            $in: this.participants
+        }
+    });
 };
 
-function getUser() {   
-    return Users.findOne({username: getUsername()});
+function getChat() {
+    return _user && Chats.findOne({
+        participants: getUserId()
+    });
 }
 
-function getChat() {
-    var currentUser = getUser();
-    return currentUser && Chats.findOne({participants: currentUser._id});
+function getUserId() {
+    return _user && _user._id;
+}
+
+function onLogin(err, result) {
+    if (err) {
+        console.error('Error logging in');
+        return;
+    }
+
+    _user = result;
+    console.log('Subscribing to events for ' + result.username);
+    Meteor.subscribe('users', getUserId());
+    Meteor.subscribe('chats', getUserId());
+
+    Users.find(getUserId()).observeChanges({
+        changed: function(id, fields) {
+            console.log('Saw a user field change! ' + id + ' fields: ' + JSON.stringify(fields));
+            if (fields && fields.token) {
+                OpentokHelper.connect(Users.findOne(getUserId()));
+            }
+        }
+    });
 }
 
 Meteor.startup(function() {
-    console.log('client startup!');  
+    console.log('client startup!');
 
     Deps.autorun(function() {
-        console.log('Subscribing to chats');
-        Meteor.subscribe('users', getUsername());
-        Meteor.subscribe('chats', getUsername());
-
-        Users.find({username: getUsername()}).observeChanges({
-            changed: function(id, fields) {
-                console.log('Saw a user field change! ' + id + ' fields: ' + JSON.stringify(fields));
-                if (fields && fields.token) {
-                    OpentokHelper.connect(getUser());
-                }
-            }
-        });
+        var username = Session.get('username');
+        if (username) {
+            Meteor.call('login', username, onLogin);
+        }
     });
-
-
 });
