@@ -4,7 +4,7 @@
 
 <body>
     <div class="container">
-        {{> toolbar}}<br/>
+        {{> debugTools}}<br/>
         <div id="connectionIndicator">
           <span class="disconnected">Disconnected</span>
         </div>
@@ -16,51 +16,53 @@
         </div>
 
         <hr class="separator"/>
-        {{> bottomPanel}}
+        <div class="bottomPanel">
+            {{> device}}
+            {{> toolbar}}
+        </div>
         <hr class="separator"/>
         {{> main}}
     </div>
 </body>
 
-<template name="toolbar">
+<template name="debugTools">
     <div data-toggle="buttons" class="btn-group">
-        <label id="signalTool" class="btn btn-primary amy">
+        <label class="btn btn-primary amy">
             <input type="radio">Amy
         </label>
-        <label id="drawTool" class="btn btn-primary bob">
+        <label class="btn btn-primary bob">
             <input type="radio">Bob
         </label>
     </div>
     <button class="btn btn-default connect"></button>
     <button class="btn btn-default disconnect"></button>
-
     <button class="btn btn-default reset">Reset</button>
-
-    <button class="btn btn-default draw">Draw</button>
 </template>
 
-<template name="bottomPanel" class="bottomPanel">
+<template name="device">
     <div id="mirrorContainer" class="landscape">
+        <img src="/img/screenshot.jpg"/>
         <canvas id="drawCanvas">
         </canvas>
     </div>
-    <div class="toolbar">
-        <div class="btn-group-vertical" data-toggle="buttons">
-            <label id="signalTool" class="btn btn-primary">
-                <input type="radio"/>
-                <i class="glyphicon glyphicon-record"></i>
-            </label>
-            <label id="drawTool" class="btn btn-primary">
-                <input type="radio"/>
-                <i class="glyphicon glyphicon-pencil"></i>
-            </label>
-        </div>
-        <br/>
-        <br/>
-        <label id="clearTool" class="btn btn-primary">
-            <i class="glyphicon glyphicon-remove"></i>
+</template>
+
+<template name="toolbar" class="toolbar">
+    <div class="btn-group-vertical" data-toggle="buttons">
+        <label id="signalTool" class="btn btn-primary">
+            <input type="radio"/>
+            <i class="glyphicon glyphicon-record"></i>
+        </label>
+        <label id="drawTool" class="btn btn-primary">
+            <input type="radio"/>
+            <i class="glyphicon glyphicon-pencil"></i>
         </label>
     </div>
+    <br/>
+    <br/>
+    <label id="clearTool" class="btn btn-primary">
+        <i class="glyphicon glyphicon-remove"></i>
+    </label>
 </template>
 
 <template name="main">

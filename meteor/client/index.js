@@ -1,6 +1,16 @@
-var _user;
+var user;
+var drawTool;
+var signalTool;
+var tool;
 
-Template.toolbar.events({
+Meteor.startup(function() {
+    drawTool = new DrawTool();
+    signalTool = new SignalTool();
+    tool = drawTool;
+});
+
+Template.debugTools.events({
+    
     'click .amy': function() {
         Session.set('username', 'Amy');
     },
@@ -18,21 +28,38 @@ Template.toolbar.events({
         Meteor.call('disconnect', getUserId());
     },
 
-    'click button.draw': function() {
-        Chats.update(getChatId(), {
-            $set: {
-                ping: {
-                    x: 100,
-                    y: 100
-                }
-            }
-        });
-    },
-
     'click button.reset': function() {
         Meteor.call('reset');
     }
 
+});
+
+Template.toolbar.events({
+
+    'click #signalTool': function() {
+        var drawCanvas = $('#drawCanvas');
+        tool.stop(drawCanvas);
+        tool = signalTool;
+        signalTool.start(drawCanvas);
+    },
+
+    'click #drawTool': function() {
+        var drawCanvas = $('#drawCanvas');
+        tool.stop(drawCanvas);
+        tool = drawTool;
+        drawTool.start(drawCanvas);
+    }
+});
+
+Template.device.events({
+
+    'draw #drawCanvas': function(event, source, data) {
+        console.log('TODO: send draw event', JSON.stringify(data));
+    },
+
+    'signal #drawCanvas': function(event, source, data) {
+        console.log('TODO: send signal event', JSON.stringify(data));  
+    }
 });
 
 Template.main.chats = function() {
@@ -54,7 +81,7 @@ Template.chat.participants = function() {
 };
 
 function getChatId() {
-    var chat = _user && Chats.findOne({
+    var chat = user && Chats.findOne({
         participants: getUserId()
     });
 
@@ -62,7 +89,7 @@ function getChatId() {
 }
 
 function getUserId() {
-    return _user && _user._id;
+    return user && user._id;
 }
 
 function onLogin(err, result) {
@@ -71,7 +98,7 @@ function onLogin(err, result) {
         return;
     }
 
-    _user = result;
+    user = result;
     console.log('Subscribing to events for ' + result.username);
     Meteor.subscribe('users', getUserId());
     Meteor.subscribe('chats', getUserId());
