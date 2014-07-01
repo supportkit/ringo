@@ -21,7 +21,7 @@ DrawTool.prototype.start = function(drawCanvas) {
     var self = this;
     var points = [];
     var lastPoint;
-    var canvasEl = document.getElementById('drawCanvas');
+    var canvasEl = drawCanvas[0];
     canvasEl.width = drawCanvas.width();
     canvasEl.height = drawCanvas.height();
     var ctx = canvasEl.getContext('2d');
@@ -82,7 +82,7 @@ SignalTool.prototype.start = function(drawCanvas) {
 
     drawCanvas.on('click', function(e) {
         var point = self.getEventCoords(e);
-        var canvasEl = document.getElementById('drawCanvas');
+        var canvasEl = drawCanvas[0];
         canvasEl.width = drawCanvas.width();
         canvasEl.height = drawCanvas.height();
         var ctx = canvasEl.getContext('2d');
@@ -119,4 +119,15 @@ SignalTool.prototype.start = function(drawCanvas) {
 
 SignalTool.prototype.stop = function(drawCanvas) {
     drawCanvas.unbind('click');
+};
+
+//
+// Clear Tool
+//
+ClearTool = function() {};
+
+ClearTool.prototype.clear = function(drawCanvas) {
+    var canvasEl = drawCanvas[0];
+    var ctx = canvasEl.getContext('2d');
+    ctx.clearRect(0, 0, drawCanvas.width(), drawCanvas.height());
 };

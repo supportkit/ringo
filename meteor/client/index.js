@@ -1,11 +1,13 @@
 var user;
 var drawTool;
 var signalTool;
+var clearTool;
 var tool;
 
 Meteor.startup(function() {
     drawTool = new DrawTool();
     signalTool = new SignalTool();
+    clearTool = new ClearTool();
     tool = drawTool;
 });
 
@@ -48,18 +50,35 @@ Template.toolbar.events({
         tool.stop(drawCanvas);
         tool = drawTool;
         drawTool.start(drawCanvas);
+    },
+
+    'click #clearTool': function() {
+        var drawCanvas = $('#drawCanvas');
+        clearTool.clear(drawCanvas);
+
+        var chatId = getChatId();
+        if (chatId) {
+            Chats.update(chatId, {$unset: {draw: ''}});
+            Chats.update(chatId, {$unset: {signal: ''}});
+        }
     }
 });
 
 Template.device.events({
 
     'draw #drawCanvas': function(event, source, data) {
-        console.log('TODO: send draw event', JSON.stringify(data));
+        var chatId = getChatId();
+        if (chatId) {
+            Chats.update(chatId, {$set: {draw: data}});
+        }
     },
 
     'signal #drawCanvas': function(event, source, data) {
-        console.log('TODO: send signal event', JSON.stringify(data));  
-    }
+        var chatId = getChatId();
+        if (chatId) {
+            Chats.update(chatId, {$set: {signal: data}});
+        }  
+    },
 });
 
 Template.main.chats = function() {
