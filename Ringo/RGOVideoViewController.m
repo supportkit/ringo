@@ -105,6 +105,9 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
         self.meteorClient = [[RGOMeteorClient alloc]initWithURL:[NSURL URLWithString:socketUrl]];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onChatConnected:) name:RGOChatConnected object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDraw:) name:RGODraw object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSignal:) name:RGOSignal object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onClear:) name:RGOClear object:nil];
     }
     return self;
 }
@@ -177,6 +180,35 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.session connectWithApiKey:otKey token:token];
     });
+}
+
+- (void)onDraw:(NSNotification *)notification {
+    NSDictionary *draw = [notification userInfo];
+    NSArray *points = [draw objectForKey:@"points"];
+    
+    [self drawCurveFromArray:points];
+}
+
+- (void)onSignal:(NSNotification *)notification {
+    NSDictionary *signal = [notification userInfo];
+    [self drawTapHighlightOvalAtPoint:signal];
+}
+
+- (void)onClear:(NSNotification *)notification {
+    NSMutableArray* toRemove = [NSMutableArray array];
+    
+    for(CALayer* layer in self.animationLayer.sublayers) {
+        if([[layer class] isSubclassOfClass:[CAShapeLayer class]]) {
+            [toRemove addObject:layer];
+        }
+    }
+    
+    for(CALayer* layer in toRemove) {
+        [layer removeAllAnimations];
+        [layer removeFromSuperlayer];
+    }
+    
+    [toRemove removeAllObjects];
 }
 
 - (void)doPublish

@@ -9,6 +9,9 @@
 #import "RGOMeteorClient.h"
 
 NSString* const RGOChatConnected = @"RGOChatConnected";
+NSString* const RGODraw = @"RGODraw";
+NSString* const RGOSignal = @"RGOSignal";
+NSString* const RGOClear = @"RGOClear";
 
 @interface RGOMeteorClient()
 
@@ -119,24 +122,27 @@ NSString* const RGOChatConnected = @"RGOChatConnected";
     NSString *newToken = [dict valueForKey:@"token"];
     if (newToken && ![newToken isEqualToString:self.token]) {
         self.token = newToken;
-        NSLog(@"Got a new token, signal OpenTok client to connect");
+        NSLog(@"Triggering ChatConnected");
         [[NSNotificationCenter defaultCenter] postNotificationName:RGOChatConnected object:self userInfo:self.user];
     };
     
-    // Detect draw events
+    // Detect draw/clear draw events
     NSDictionary *draw = [dict valueForKey:@"draw"];
     if (draw) {
         if ([draw count] != 0) {
-            NSLog(@"Got a draw event %@", draw);
+            NSLog(@"Triggering Draw event");
+            [[NSNotificationCenter defaultCenter] postNotificationName:RGODraw object:self userInfo:draw];
         } else {
-            NSLog(@"Drawing was cleared");
+            NSLog(@"Triggering Clear event");
+            [[NSNotificationCenter defaultCenter] postNotificationName:RGOClear object:self userInfo:nil];
         }
     }
     
     // Detect signal events
     NSDictionary *signal = [dict valueForKey:@"signal"];
     if ([signal count]) {
-        NSLog(@"Got a signal event %@", signal);
+        NSLog(@"Triggering Signal event");
+        [[NSNotificationCenter defaultCenter] postNotificationName:RGOSignal object:self userInfo:signal];
     }
 }
 

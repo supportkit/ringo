@@ -8,7 +8,7 @@ In this branch represents ongoing work to replace Ringo's cumbersome socket.io +
 - [x] Sample app is now using [ObjectiveDDP](https://github.com/boundsj/ObjectiveDDP). It can connect to the meteor backend but not much else
 - [x] Simple browser-to-browser OpenTok sessions
 - [x] Implement browser-to-ios OpenTok sessions
-- [ ] Remote agent drawing/signalling on iOS screen
+- [x] Remote agent drawing/signalling on iOS screen
 - [ ] Upload device screenshots using something like [CollectionFS](https://github.com/CollectionFS/Meteor-CollectionFS)
 - [ ] Implement a simple agent/endUser identification
 

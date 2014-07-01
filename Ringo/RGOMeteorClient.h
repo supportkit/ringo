@@ -11,6 +11,9 @@
 #import <ObjectiveDDP/MeteorClient.h>
 
 extern NSString* const RGOChatConnected;
+extern NSString* const RGODraw;
+extern NSString* const RGOSignal;
+extern NSString* const RGOClear;
 
 @interface RGOMeteorClient : NSObject
 

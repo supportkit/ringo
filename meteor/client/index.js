@@ -39,6 +39,7 @@ Template.debugTools.events({
 Template.toolbar.events({
 
     'click #signalTool': function() {
+        clearDrawing();
         var drawCanvas = $('#drawCanvas');
         tool.stop(drawCanvas);
         tool = signalTool;
@@ -46,6 +47,7 @@ Template.toolbar.events({
     },
 
     'click #drawTool': function() {
+        clearDrawing();
         var drawCanvas = $('#drawCanvas');
         tool.stop(drawCanvas);
         tool = drawTool;
@@ -55,12 +57,7 @@ Template.toolbar.events({
     'click #clearTool': function() {
         var drawCanvas = $('#drawCanvas');
         clearTool.clear(drawCanvas);
-
-        var chatId = getChatId();
-        if (chatId) {
-            Chats.update(chatId, {$set: {draw: {}}});
-            Chats.update(chatId, {$set: {signal: {}}});
-        }
+        clearDrawing();
     }
 });
 
@@ -98,6 +95,14 @@ Template.chat.participants = function() {
         }
     });
 };
+
+function clearDrawing() {
+    var chatId = getChatId();
+    if (chatId) {
+        Chats.update(chatId, {$set: {draw: {}}});
+        Chats.update(chatId, {$set: {signal: {}}});
+    }
+}
 
 function getChatId() {
     var chat = user && Chats.findOne({
