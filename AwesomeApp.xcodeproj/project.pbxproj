@@ -25,11 +25,6 @@
 		496B208E194245D200AEB5E6 /* ObjectiveDDP.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2020194245D200AEB5E6 /* ObjectiveDDP.m */; };
 		496B208F194245D200AEB5E6 /* srp.c in Sources */ = {isa = PBXBuildFile; fileRef = 496B206D194245D200AEB5E6 /* srp.c */; };
 		496B2090194245D200AEB5E6 /* Opentok.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496B2070194245D200AEB5E6 /* Opentok.framework */; };
-		496B2091194245D200AEB5E6 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2073194245D200AEB5E6 /* SocketIO.m */; };
-		496B2092194245D200AEB5E6 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2075194245D200AEB5E6 /* SocketIOJSONSerialization.m */; };
-		496B2093194245D200AEB5E6 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B2077194245D200AEB5E6 /* SocketIOPacket.m */; };
-		496B2094194245D200AEB5E6 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B207A194245D200AEB5E6 /* SocketIOTransportWebsocket.m */; };
-		496B2095194245D200AEB5E6 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B207C194245D200AEB5E6 /* SocketIOTransportXHR.m */; };
 		496B2096194245D200AEB5E6 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 496B207F194245D200AEB5E6 /* SRWebSocket.m */; };
 		9F1664881940E299004AD2AF /* RGOOpenTokApiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1664511940E299004AD2AF /* RGOOpenTokApiClient.m */; };
 		9F16648B1940E299004AD2AF /* RGOOverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F1664571940E299004AD2AF /* RGOOverlayWindow.m */; };
@@ -213,17 +208,6 @@
 		496B206D194245D200AEB5E6 /* srp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = srp.c; sourceTree = "<group>"; };
 		496B206E194245D200AEB5E6 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
 		496B2070194245D200AEB5E6 /* Opentok.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Opentok.framework; sourceTree = "<group>"; };
-		496B2072194245D200AEB5E6 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
-		496B2073194245D200AEB5E6 /* SocketIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIO.m; sourceTree = "<group>"; };
-		496B2074194245D200AEB5E6 /* SocketIOJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOJSONSerialization.h; sourceTree = "<group>"; };
-		496B2075194245D200AEB5E6 /* SocketIOJSONSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOJSONSerialization.m; sourceTree = "<group>"; };
-		496B2076194245D200AEB5E6 /* SocketIOPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOPacket.h; sourceTree = "<group>"; };
-		496B2077194245D200AEB5E6 /* SocketIOPacket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOPacket.m; sourceTree = "<group>"; };
-		496B2078194245D200AEB5E6 /* SocketIOTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransport.h; sourceTree = "<group>"; };
-		496B2079194245D200AEB5E6 /* SocketIOTransportWebsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportWebsocket.h; sourceTree = "<group>"; };
-		496B207A194245D200AEB5E6 /* SocketIOTransportWebsocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportWebsocket.m; sourceTree = "<group>"; };
-		496B207B194245D200AEB5E6 /* SocketIOTransportXHR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIOTransportXHR.h; sourceTree = "<group>"; };
-		496B207C194245D200AEB5E6 /* SocketIOTransportXHR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketIOTransportXHR.m; sourceTree = "<group>"; };
 		496B207E194245D200AEB5E6 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		496B207F194245D200AEB5E6 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		9F1664501940E299004AD2AF /* RGOOpenTokApiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGOOpenTokApiClient.h; sourceTree = "<group>"; };
@@ -243,7 +227,7 @@
 		9F1664EB1940E89A004AD2AF /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		9F1664EE1940E8AF004AD2AF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		9F1664F01940E8CC004AD2AF /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		9F1664F21940E9CD004AD2AF /* bg_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_video.png; sourceTree = "<group>"; };
+		9F1664F21940E9CD004AD2AF /* bg_video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_video.png; path = ../bg_video.png; sourceTree = "<group>"; };
 		9F1664F51940EA0B004AD2AF /* 0.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 0.gif; sourceTree = "<group>"; };
 		9F1664F61940EA0B004AD2AF /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		9F1664F71940EA0B004AD2AF /* 10.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 10.gif; sourceTree = "<group>"; };
@@ -336,7 +320,6 @@
 				496B2000194245D200AEB5E6 /* AFNetworking */,
 				496B2014194245D200AEB5E6 /* ObjectiveDDP */,
 				496B206F194245D200AEB5E6 /* openTok */,
-				496B2071194245D200AEB5E6 /* SocketIO */,
 				496B207D194245D200AEB5E6 /* SocketRocket */,
 			);
 			path = ThirdParty;
@@ -487,24 +470,6 @@
 			path = openTok;
 			sourceTree = "<group>";
 		};
-		496B2071194245D200AEB5E6 /* SocketIO */ = {
-			isa = PBXGroup;
-			children = (
-				496B2072194245D200AEB5E6 /* SocketIO.h */,
-				496B2073194245D200AEB5E6 /* SocketIO.m */,
-				496B2074194245D200AEB5E6 /* SocketIOJSONSerialization.h */,
-				496B2075194245D200AEB5E6 /* SocketIOJSONSerialization.m */,
-				496B2076194245D200AEB5E6 /* SocketIOPacket.h */,
-				496B2077194245D200AEB5E6 /* SocketIOPacket.m */,
-				496B2078194245D200AEB5E6 /* SocketIOTransport.h */,
-				496B2079194245D200AEB5E6 /* SocketIOTransportWebsocket.h */,
-				496B207A194245D200AEB5E6 /* SocketIOTransportWebsocket.m */,
-				496B207B194245D200AEB5E6 /* SocketIOTransportXHR.h */,
-				496B207C194245D200AEB5E6 /* SocketIOTransportXHR.m */,
-			);
-			path = SocketIO;
-			sourceTree = "<group>";
-		};
 		496B207D194245D200AEB5E6 /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
@@ -518,7 +483,6 @@
 			isa = PBXGroup;
 			children = (
 				9F1664F41940EA0B004AD2AF /* speak_animation */,
-				9F1664F21940E9CD004AD2AF /* bg_video.png */,
 				9F1664501940E299004AD2AF /* RGOOpenTokApiClient.h */,
 				9F1664511940E299004AD2AF /* RGOOpenTokApiClient.m */,
 				9F1664561940E299004AD2AF /* RGOOverlayWindow.h */,
@@ -548,6 +512,7 @@
 		9F1664F41940EA0B004AD2AF /* speak_animation */ = {
 			isa = PBXGroup;
 			children = (
+				9F1664F21940E9CD004AD2AF /* bg_video.png */,
 				9F1664F51940EA0B004AD2AF /* 0.gif */,
 				9F1664F61940EA0B004AD2AF /* 1.gif */,
 				9F1664F71940EA0B004AD2AF /* 10.gif */,
@@ -806,7 +771,6 @@
 				496B2085194245D200AEB5E6 /* AFURLConnectionOperation.m in Sources */,
 				496B208A194245D200AEB5E6 /* DependencyProvider.m in Sources */,
 				496B2080194245D200AEB5E6 /* AFHTTPRequestOperation.m in Sources */,
-				496B2094194245D200AEB5E6 /* SocketIOTransportWebsocket.m in Sources */,
 				496B2082194245D200AEB5E6 /* AFHTTPSessionManager.m in Sources */,
 				496B208E194245D200AEB5E6 /* ObjectiveDDP.m in Sources */,
 				496B208D194245D200AEB5E6 /* MeteorClient.m in Sources */,
@@ -818,12 +782,8 @@
 				9FE20D1E18524EA4004B116D /* RP_AppDelegate.m in Sources */,
 				496B2081194245D200AEB5E6 /* AFHTTPRequestOperationManager.m in Sources */,
 				494A3E25194D0D4600241B12 /* RGOMeteorClient.m in Sources */,
-				496B2095194245D200AEB5E6 /* SocketIOTransportXHR.m in Sources */,
-				496B2093194245D200AEB5E6 /* SocketIOPacket.m in Sources */,
 				9F16648B1940E299004AD2AF /* RGOOverlayWindow.m in Sources */,
 				496B2087194245D200AEB5E6 /* AFURLResponseSerialization.m in Sources */,
-				496B2092194245D200AEB5E6 /* SocketIOJSONSerialization.m in Sources */,
-				496B2091194245D200AEB5E6 /* SocketIO.m in Sources */,
 				9F1664931940E299004AD2AF /* RGOVideoViewController.m in Sources */,
 				496B2089194245D200AEB5E6 /* BSONIdGenerator.m in Sources */,
 				9F1664971940E299004AD2AF /* Ringo.m in Sources */,

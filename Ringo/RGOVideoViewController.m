@@ -22,8 +22,6 @@ THIS SOFTWARE IS PROVIDED ''AS IS'', AND ANY EXPRESS OR IMPLIED WARRANTIES, INCL
 #import <time.h>
 #import "RGODraggableView.h"
 #import "RGOScreenCaptureThread.h"
-#import "SocketIO.h"
-#import "SocketIOPacket.h"
 #import "RGOMeteorClient.h"
 
 static NSString* const socketUrl = @"wss://ringo.meteor.com/websocket";
@@ -37,7 +35,6 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 @property(nonatomic, strong) OTSubscriber* subscriber;
 @property(nonatomic, strong) RGOOpenTokApiClient* apiClient;
 @property(nonatomic, strong) RGOScreenCaptureThread* capThread;
-@property(nonatomic, strong) SocketIO* socketIO;
 
 @property (nonatomic, retain) CALayer *animationLayer;
 @property (nonatomic, retain) CAShapeLayer *pathLayer;
@@ -162,8 +159,6 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
     
     NSString* orientation = UIInterfaceOrientationIsPortrait(interfaceOrientation) ? @"portrait" : @"landscape";
     NSLog(@"user_rotate : %@",orientation);
-
-    [self.socketIO sendEvent:@"user_rotate" withData:[NSDictionary dictionaryWithObject:orientation forKey:@"orientation"]];
     
     return YES;
 }
@@ -230,12 +225,6 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
     self.capThread = [[RGOScreenCaptureThread alloc] init];
     self.capThread.apiClient = self.apiClient;
     [self.capThread start];
-    
-    //Connect to socketIO
-    self.socketIO = [[SocketIO alloc] initWithDelegate:self];
-    
-    NSURL* tmpUrl  = [NSURL URLWithString:kApiEndpoint];
-    [self.socketIO connectToHost:[tmpUrl host] onPort:[[tmpUrl port] integerValue]];
     
     [self setupDrawingLayer];
     [self startAnimation];
@@ -319,40 +308,7 @@ static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 }
 
 #pragma mark -
-#pragma mark SocketIO delegate
-
-- (void)socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet {
-    if([packet.name isEqualToString:@"agent_draw_relay"] ) {
-        NSError* err;
-        NSData* data = [[packet.args objectAtIndex:0] dataUsingEncoding:NSUTF8StringEncoding];
-        NSArray *array = [NSJSONSerialization JSONObjectWithData:data  options:0 error:&err];
-        [self drawCurveFromArray:array];
-    } else if([packet.name isEqualToString:@"agent_clear_relay"]) {
-        NSMutableArray* toRemove = [NSMutableArray array];
-        
-        for(CALayer* layer in self.animationLayer.sublayers) {
-            if([[layer class] isSubclassOfClass:[CAShapeLayer class]]) {
-                [toRemove addObject:layer];
-            }
-        }
-        
-        for(CALayer* layer in toRemove) {
-            [layer removeAllAnimations];
-            [layer removeFromSuperlayer];
-        }
-        
-        [toRemove removeAllObjects];
-    } else if([packet.name isEqualToString:@"agent_signal_relay"]) {
-        NSError* err;
-        NSData* data = [[packet.args objectAtIndex:0] dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary *rawPt = [NSJSONSerialization JSONObjectWithData:data  options:0 error:&err];
-        [self drawTapHighlightOvalAtPoint:rawPt];
-    }
-}
-
-
-#pragma mark -
-#pragma mark Animation Baby
+#pragma mark Drawing & Signalling
 
 -(void)drawTapHighlightOvalAtPoint:(NSDictionary*)rawPt {
     CGFloat x = [[rawPt valueForKey:@"x"] floatValue];
