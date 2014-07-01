@@ -26,7 +26,7 @@ THIS SOFTWARE IS PROVIDED ''AS IS'', AND ANY EXPRESS OR IMPLIED WARRANTIES, INCL
 #import "SocketIOPacket.h"
 #import "RGOMeteorClient.h"
 
-static NSString* const socketUrl = @"wss://alavers.meteor.com/websocket";
+static NSString* const socketUrl = @"wss://ringo.meteor.com/websocket";
 static NSString* const kApiEndpoint = @"http://rpringo.herokuapp.com/";
 
 @interface RGOVideoViewController ()

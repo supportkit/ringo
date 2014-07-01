@@ -113,6 +113,8 @@ NSString* const RGOChatConnected = @"RGOChatConnected";
     self.user = [self.meteorClient.collections[@"users"] firstObject];
     self.chat = [self.meteorClient.collections[@"chats"] firstObject];
     
+    NSLog(@"Chat: %@", self.chat);
+    
     // Detect & fire OpenTok connected event
     NSString *newToken = [dict valueForKey:@"token"];
     if (newToken && ![newToken isEqualToString:self.token]) {
@@ -120,6 +122,22 @@ NSString* const RGOChatConnected = @"RGOChatConnected";
         NSLog(@"Got a new token, signal OpenTok client to connect");
         [[NSNotificationCenter defaultCenter] postNotificationName:RGOChatConnected object:self userInfo:self.user];
     };
+    
+    // Detect draw events
+    NSDictionary *draw = [dict valueForKey:@"draw"];
+    if (draw) {
+        if ([draw count] != 0) {
+            NSLog(@"Got a draw event %@", draw);
+        } else {
+            NSLog(@"Drawing was cleared");
+        }
+    }
+    
+    // Detect signal events
+    NSDictionary *signal = [dict valueForKey:@"signal"];
+    if ([signal count]) {
+        NSLog(@"Got a signal event %@", signal);
+    }
 }
 
 @end

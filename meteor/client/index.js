@@ -58,8 +58,8 @@ Template.toolbar.events({
 
         var chatId = getChatId();
         if (chatId) {
-            Chats.update(chatId, {$unset: {draw: ''}});
-            Chats.update(chatId, {$unset: {signal: ''}});
+            Chats.update(chatId, {$set: {draw: {}}});
+            Chats.update(chatId, {$set: {signal: {}}});
         }
     }
 });
